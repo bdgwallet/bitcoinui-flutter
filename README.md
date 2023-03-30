@@ -1,3 +1,5 @@
+# The Bitcoin UI Kit for Flutter
+
 This is the Flutter implementation of the Bitcoin UI Kit.
 
 ## Features
