@@ -1,10 +1,10 @@
 # The Bitcoin UI Kit for Flutter
 
-This is the Flutter implementation of the Bitcoin UI Kit.
+WIP - This is the Flutter implementation of the Bitcoin UI Kit.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+TODO: Colors, themes, icons, text styles, buttons
 
 ## Getting started
 
