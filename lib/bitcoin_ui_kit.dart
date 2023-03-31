@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 extension BitcoinUIKitColor on Color {
   // Primary and accent colors
-  static Color get orange => const Color(0xFFF7931A);
+  static Color get orange => Color(0xFFF7931A);
   static Color get red => const Color(0xFFEB5757);
   static Color get green => const Color(0xFF27AE60);
   static Color get blue => const Color(0xFF2D9CDB);
