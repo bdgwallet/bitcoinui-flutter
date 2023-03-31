@@ -4,20 +4,44 @@ WIP - This is the Flutter implementation of the Bitcoin UI Kit.
 
 ## Features
 
-TODO: Colors, themes, icons, text styles, buttons
+Colors
+TODO: themes, icons, text styles, buttons
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add as dependency in your pubspec.yaml:
+
+```dart
+dependencies:
+  flutter:
+    sdk: flutter
+  bitcoin_ui_kit:
+    git:
+      url: https://github.com/bdgwallet/bitcoinuikit-flutter.git
+      ref: main
+```
+
+To use in any dart file, import:
+
+```dart
+import 'package:bitcoin_ui_kit/bitcoin_ui_kit.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use the Bitcoin UI Kit colors:
 
 ```dart
-const like = 'sample';
+BitcoinUIKitColor.orange
+```
+
+To use the Bitcoin UI Kit icons:
+
+```dart
+Image(
+    image: const AssetImage("icons/bitcoin_circle_filled.png",
+    package: "bitcoin_ui_kit"),
+    color: BitcoinUIKitColor.orange),
 ```
 
 ## Additional information
