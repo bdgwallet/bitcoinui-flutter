@@ -6,37 +6,37 @@ import 'package:flutter/material.dart';
 extension BitcoinUIKitColor on Color {
   // Primary and accent colors
   static Color get orange => const Color(0xFFF7931A);
-  Color get bitcoinRed => const Color(0xFFEB5757);
-  Color get bitcoinGreen => const Color(0xFF27AE60);
-  Color get bitcoinBlue => const Color(0xFF2D9CDB);
-  Color get bitcoinPurple => const Color(0xFFBB6BD9);
+  static Color get red => const Color(0xFFEB5757);
+  static Color get green => const Color(0xFF27AE60);
+  static Color get blue => const Color(0xFF2D9CDB);
+  static Color get purple => const Color(0xFFBB6BD9);
 
   // Light theme neutrals
-  Color get bitcoinWhite => const Color(0xFFFFFFFF);
-  Color get bitcoinNeutral1 => const Color(0xFFF8F8F8);
-  Color get bitcoinNeutral2 => const Color(0xFFF4F4F4);
-  Color get bitcoinNeutral3 => const Color(0xFFEDEDED);
-  Color get bitcoinNeutral4 => const Color(0xFFDEDEDE);
-  Color get bitcoinNeutral5 => const Color(0xFFBBBBBB);
-  Color get bitcoinNeutral6 => const Color(0xFF999999);
-  Color get bitcoinNeutral7 => const Color(0xFF777777);
-  Color get bitcoinNeutral8 => const Color(0xFF404040);
-  Color get bitcoinBlack => const Color(0xFF000000);
+  static Color get white => const Color(0xFFFFFFFF);
+  static Color get neutral1 => const Color(0xFFF8F8F8);
+  static Color get neutral2 => const Color(0xFFF4F4F4);
+  static Color get neutral3 => const Color(0xFFEDEDED);
+  static Color get neutral4 => const Color(0xFFDEDEDE);
+  static Color get neutral5 => const Color(0xFFBBBBBB);
+  static Color get neutral6 => const Color(0xFF999999);
+  static Color get neutral7 => const Color(0xFF777777);
+  static Color get neutral8 => const Color(0xFF404040);
+  static Color get bitcoinBlack => const Color(0xFF000000);
 
   // Dark primary and accent colors
-  Color get bitcoinOrangeDark => const Color(0xFFF89B2A);
-  Color get bitcoinRedDark => const Color(0xFFEC6363);
-  Color get bitcoinGreenDark => const Color(0xFF36B46B);
-  Color get bitcoinBlueDark => const Color(0xFF3CA3DE);
-  Color get bitcoinPurpleDark => const Color(0xFFC075DC);
+  static Color get bitcoinOrangeDark => const Color(0xFFF89B2A);
+  static Color get bitcoinRedDark => const Color(0xFFEC6363);
+  static Color get bitcoinGreenDark => const Color(0xFF36B46B);
+  static Color get bitcoinBlueDark => const Color(0xFF3CA3DE);
+  static Color get bitcoinPurpleDark => const Color(0xFFC075DC);
 
   // Dark theme neutrals
-  Color get bitcoinNeutral1Dark => const Color(0xFF1A1A1A);
-  Color get bitcoinNeutral2Dark => const Color(0xFF2D2D2D);
-  Color get bitcoinNeutral3Dark => const Color(0xFF444444);
-  Color get bitcoinNeutral4Dark => const Color(0xFF5C5C5C);
-  Color get bitcoinNeutral5Dark => const Color(0xFF787878);
-  Color get bitcoinNeutral6Dark => const Color(0xFF949494);
-  Color get bitcoinNeutral7Dark => const Color(0xFFB0B0B0);
-  Color get bitcoinNeutral8Dark => const Color(0xFFCCCCCC);
+  static Color get neutral1Dark => const Color(0xFF1A1A1A);
+  static Color get neutral2Dark => const Color(0xFF2D2D2D);
+  static Color get neutral3Dark => const Color(0xFF444444);
+  static Color get neutral4Dark => const Color(0xFF5C5C5C);
+  static Color get neutral5Dark => const Color(0xFF787878);
+  static Color get neutral6Dark => const Color(0xFF949494);
+  static Color get neutral7Dark => const Color(0xFFB0B0B0);
+  static Color get neutral8Dark => const Color(0xFFCCCCCC);
 }
