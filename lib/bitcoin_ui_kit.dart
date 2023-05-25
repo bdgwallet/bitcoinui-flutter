@@ -21,14 +21,14 @@ extension BitcoinUIKitColor on Color {
   static Color get neutral6 => const Color(0xFF999999);
   static Color get neutral7 => const Color(0xFF777777);
   static Color get neutral8 => const Color(0xFF404040);
-  static Color get bitcoinBlack => const Color(0xFF000000);
+  static Color get black => const Color(0xFF000000);
 
   // Dark primary and accent colors
-  static Color get bitcoinOrangeDark => const Color(0xFFF89B2A);
-  static Color get bitcoinRedDark => const Color(0xFFEC6363);
-  static Color get bitcoinGreenDark => const Color(0xFF36B46B);
-  static Color get bitcoinBlueDark => const Color(0xFF3CA3DE);
-  static Color get bitcoinPurpleDark => const Color(0xFFC075DC);
+  static Color get orangeDark => const Color(0xFFF89B2A);
+  static Color get redDark => const Color(0xFFEC6363);
+  static Color get greenDark => const Color(0xFF36B46B);
+  static Color get blueDark => const Color(0xFF3CA3DE);
+  static Color get purpleDark => const Color(0xFFC075DC);
 
   // Dark theme neutrals
   static Color get neutral1Dark => const Color(0xFF1A1A1A);
