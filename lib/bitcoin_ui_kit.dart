@@ -3,7 +3,7 @@ library bitcoin_ui_kit;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-extension BitcoinUIKitColor on Color {
+extension Bitcoin on Color {
   // Primary and accent colors
   static Color get orange => const Color(0xFFF7931A);
   static Color get red => const Color(0xFFEB5757);
