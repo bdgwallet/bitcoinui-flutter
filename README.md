@@ -27,45 +27,46 @@ import 'package:bitcoin_ui_kit/bitcoin_ui_kit.dart';
 
 ```dart
 // Light primary and accent colors
-BitcoinUIKitColor.orange
-BitcoinUIKitColor.red
-BitcoinUIKitColor.green
-BitcoinUIKitColor.blue
-BitcoinUIKitColor.purple
+Bitcoin.orange
+Bitcoin.red
+Bitcoin.green
+Bitcoin.blue
+Bitcoin.purple
 
 // Light theme neutrals
-BitcoinUIKitColor.white
-BitcoinUIKitColor.neutral1
-BitcoinUIKitColor.neutral2
-BitcoinUIKitColor.neutral3
-BitcoinUIKitColor.neutral4
-BitcoinUIKitColor.neutral5
-BitcoinUIKitColor.neutral6
-BitcoinUIKitColor.neutral7
-BitcoinUIKitColor.neutral8
-BitcoinUIKitColor.black
+Bitcoin.white
+Bitcoin.neutral1
+Bitcoin.neutral2
+Bitcoin.neutral3
+Bitcoin.neutral4
+Bitcoin.neutral5
+Bitcoin.neutral6
+Bitcoin.neutral7
+Bitcoin.neutral8
+Bitcoin.black
 ```
 
 ![image](https://github.com/bdgwallet/bitcoinuikit-flutter/assets/3393669/dd843296-6336-4920-b9e6-93dae58f4697)
 
 ```dart
 // Dark primary and accent colors
-BitcoinUIKitColor.orangeDark
-BitcoinUIKitColor.redDark
-BitcoinUIKitColor.greenDark
-BitcoinUIKitColor.blueDark
-BitcoinUIKitColor.purpleDark
+Bitcoin.orangeDark
+Bitcoin.redDark
+Bitcoin.greenDark
+Bitcoin.blueDark
+Bitcoin.purpleDark
 
 // Dark theme neutrals
-BitcoinUIKitColor.neutral1Dark
-BitcoinUIKitColor.neutral2Dark
-BitcoinUIKitColor.neutral3Dark
-BitcoinUIKitColor.neutral4Dark
-BitcoinUIKitColor.neutral5Dark
-BitcoinUIKitColor.neutral6Dark
-BitcoinUIKitColor.neutral7Dark
-BitcoinUIKitColor.neutral8Dark
+Bitcoin.neutral1Dark
+Bitcoin.neutral2Dark
+Bitcoin.neutral3Dark
+Bitcoin.neutral4Dark
+Bitcoin.neutral5Dark
+Bitcoin.neutral6Dark
+Bitcoin.neutral7Dark
+Bitcoin.neutral8Dark
 ```
+
 ![image](https://github.com/bdgwallet/bitcoinuikit-flutter/assets/3393669/65d5a45a-67cb-4972-bfde-b2f21f62a822)
 
 ## Icons
@@ -74,8 +75,9 @@ BitcoinUIKitColor.neutral8Dark
 Image(
     image: const AssetImage("icons/bitcoin_circle_filled.png",
     package: "bitcoin_ui_kit"),
-    color: BitcoinUIKitColor.orange),
+    color: Bitcoin.orange),
 ```
+
 ## ToDo
 
 - Themes
