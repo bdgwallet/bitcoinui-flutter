@@ -69,6 +69,25 @@ Bitcoin.neutral8Dark
 
 ![image](https://github.com/bdgwallet/bitcoinuikit-flutter/assets/3393669/65d5a45a-67cb-4972-bfde-b2f21f62a822)
 
+## Buttons
+
+There are three styles of buttons in the UI Kit
+
+- BitcoinButtonFilled
+- BitcoinButtonOutlined
+- BitcoinButtonPlain
+
+They each have optional parameters like, width, height, tintColor, textColor (for BitcoinButtonFilled), cornerRadius and the ability to set disabled and isLoading states.
+
+```dart
+BitcoinButtonFilled(
+  title: "Filled",
+  onPressed: () {
+    debugPrint("Test button press");
+  }
+),
+```
+
 ## Icons
 
 ```dart
@@ -83,7 +102,6 @@ Image(
 - Themes
 - All icons
 - Text styles
-- Button styles
 
 ## Additional information
 
