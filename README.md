@@ -1,7 +1,6 @@
 # The Bitcoin UI Kit for Flutter
 
 This is the Flutter implementation of the [Bitcoin UI Kit](https://www.bitcoinuikit.com).
-It is a work in proggress, not all features are implemented yet
 
 ## Getting started
 
