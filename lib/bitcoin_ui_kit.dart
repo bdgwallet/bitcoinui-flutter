@@ -44,6 +44,50 @@ extension Bitcoin on Color {
   static Color get neutral8Dark => const Color(0xFFCCCCCC);
 }
 
+// Text styles
+
+extension BitcoinTextStyle on TextStyle {
+  static TextStyle title1(Color color) {
+    return TextStyle(fontSize: 36.0, fontWeight: FontWeight.w600, color: color);
+  }
+
+  static TextStyle title2(Color color) {
+    return TextStyle(fontSize: 28.0, fontWeight: FontWeight.w600, color: color);
+  }
+
+  static TextStyle title3(Color color) {
+    return TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600, color: color);
+  }
+
+  static TextStyle title4(Color color) {
+    return TextStyle(fontSize: 21.0, fontWeight: FontWeight.w600, color: color);
+  }
+
+  static TextStyle title5(Color color) {
+    return TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: color);
+  }
+
+  static TextStyle body1(Color color) {
+    return TextStyle(fontSize: 24.0, fontWeight: FontWeight.w400, color: color);
+  }
+
+  static TextStyle body2(Color color) {
+    return TextStyle(fontSize: 21.0, fontWeight: FontWeight.w400, color: color);
+  }
+
+  static TextStyle body3(Color color) {
+    return TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400, color: color);
+  }
+
+  static TextStyle body4(Color color) {
+    return TextStyle(fontSize: 15.0, fontWeight: FontWeight.w400, color: color);
+  }
+
+  static TextStyle body5(Color color) {
+    return TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: color);
+  }
+}
+
 // Buttons
 
 const defaultButtonWidth = 315.0;
