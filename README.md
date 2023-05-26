@@ -8,10 +8,7 @@ Add the package in your pubspec.yaml dependencies
 
 ```dart
 dependencies:
-  bitcoin_ui_kit:
-    git:
-      url: https://github.com/bdgwallet/bitcoinuikit-flutter.git
-      ref: main
+  bitcoin_ui_kit: : ^1.0.0
 ```
 
 ## Usage
