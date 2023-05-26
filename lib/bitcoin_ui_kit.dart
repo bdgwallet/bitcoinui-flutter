@@ -177,10 +177,23 @@ class BitcoinButtonOutlined extends StatelessWidget {
       return SizedBox(
           width: width,
           height: height,
-          child: CupertinoButton(
-              color: disabled ? disabledTintColor : tintColor,
-              borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
-              padding: defaultPadding,
+          child: OutlinedButton(
+              // Can't use CupertinoButton here as it has no ability to set outlines
+              style: ButtonStyle(
+                elevation: const MaterialStatePropertyAll(0),
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                padding: MaterialStateProperty.all(defaultPadding),
+                fixedSize: MaterialStatePropertyAll(Size(width, height)),
+                side: MaterialStatePropertyAll(BorderSide(
+                    width: 2.0,
+                    color: disabled ? disabledTintColor : tintColor)),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(cornerRadius),
+                  ),
+                ),
+                enableFeedback: true,
+              ),
               onPressed: disabled
                   ? null
                   : isLoading
