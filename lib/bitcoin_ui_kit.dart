@@ -1,7 +1,10 @@
 library bitcoin_ui_kit;
 
+import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Colors
 
 extension Bitcoin on Color {
   // Primary and accent colors
@@ -39,4 +42,107 @@ extension Bitcoin on Color {
   static Color get neutral6Dark => const Color(0xFF949494);
   static Color get neutral7Dark => const Color(0xFFB0B0B0);
   static Color get neutral8Dark => const Color(0xFFCCCCCC);
+}
+
+// Buttons
+
+const defaultButtonWidth = 315.0;
+const defaultButtonHeight = 48.0;
+const defaultCornerRadius = 5.0;
+const defaultPadding = EdgeInsets.symmetric(vertical: 8, horizontal: 30);
+const defaultTintColor = Color(0xFFF89B2A);
+const defaultTextColor = Color(0xFFFFFFFF);
+const defaultDisabledTintColor = Color(0xFFF4F4F4);
+const defaultDisabledTextColor = Color(0xFFBBBBBB);
+const defaultDisabledOutlineColor = Color(0xFFDEDEDE);
+
+class BitcoinButtonFilled extends StatelessWidget {
+  final String title;
+  final double width;
+  final double height;
+  final double cornerRadius;
+  final Color tintColor;
+  final Color textColor;
+  final Color disabledTintColor;
+  final Color disabledTextColor;
+  final bool disabled;
+  final bool isLoading;
+  final VoidCallback? onPressed;
+
+  const BitcoinButtonFilled({
+    Key? key,
+    required this.title,
+    this.width = defaultButtonWidth,
+    this.height = defaultButtonHeight,
+    this.cornerRadius = defaultCornerRadius,
+    this.tintColor = defaultTintColor,
+    this.textColor = defaultTextColor,
+    this.disabledTintColor = defaultDisabledTintColor,
+    this.disabledTextColor = defaultDisabledTextColor,
+    this.disabled = false,
+    this.isLoading = false,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isIOS) {
+      return SizedBox(
+          width: width,
+          height: height,
+          child: CupertinoButton(
+              color: disabled ? disabledTintColor : tintColor,
+              borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+              padding: defaultPadding,
+              onPressed: disabled
+                  ? null
+                  : isLoading
+                      ? (() => {})
+                      : onPressed,
+              child: isLoading
+                  ? SizedBox(
+                      height: height * 0.5,
+                      width: height * 0.5,
+                      child: Center(
+                          child: CupertinoActivityIndicator(color: textColor)),
+                    )
+                  : Text(title,
+                      style: TextStyle(
+                          color: disabled ? disabledTextColor : textColor,
+                          fontWeight: FontWeight.bold))));
+    } else {
+      return ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+                disabled ? disabledTintColor : tintColor),
+            padding: MaterialStateProperty.all(defaultPadding),
+            fixedSize: MaterialStatePropertyAll(Size(width, height)),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(cornerRadius),
+              ),
+            ),
+            enableFeedback: true,
+          ),
+          onPressed: disabled
+              ? null
+              : isLoading
+                  ? (() => {})
+                  : onPressed,
+          child: isLoading
+              ? SizedBox(
+                  height: height * 0.5,
+                  width: height * 0.5,
+                  child: Center(
+                      child: CircularProgressIndicator(
+                          color: textColor, strokeWidth: 2)),
+                )
+              : Text(
+                  title,
+                  style: TextStyle(
+                      color: disabled ? disabledTextColor : textColor,
+                      fontWeight: FontWeight.bold),
+                ));
+    }
+  }
 }
