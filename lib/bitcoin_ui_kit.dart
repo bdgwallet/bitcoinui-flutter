@@ -151,9 +151,8 @@ class BitcoinButtonFilled extends StatelessWidget {
                           child: CupertinoActivityIndicator(color: textColor)),
                     )
                   : Text(title,
-                      style: TextStyle(
-                          color: disabled ? disabledTextColor : textColor,
-                          fontWeight: FontWeight.bold))));
+                      style: BitcoinTextStyle.title4(
+                          disabled ? disabledTextColor : textColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -183,9 +182,8 @@ class BitcoinButtonFilled extends StatelessWidget {
                 )
               : Text(
                   title,
-                  style: TextStyle(
-                      color: disabled ? disabledTextColor : textColor,
-                      fontWeight: FontWeight.bold),
+                  style: BitcoinTextStyle.title4(
+                      disabled ? disabledTextColor : textColor),
                 ));
     }
   }
@@ -252,9 +250,8 @@ class BitcoinButtonOutlined extends StatelessWidget {
                               color: disabled ? disabledTintColor : tintColor)),
                     )
                   : Text(title,
-                      style: TextStyle(
-                          color: disabled ? disabledTintColor : tintColor,
-                          fontWeight: FontWeight.bold))));
+                      style: BitcoinTextStyle.title4(
+                          disabled ? disabledTintColor : tintColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -287,9 +284,8 @@ class BitcoinButtonOutlined extends StatelessWidget {
                 )
               : Text(
                   title,
-                  style: TextStyle(
-                      color: disabled ? disabledTintColor : tintColor,
-                      fontWeight: FontWeight.bold),
+                  style: BitcoinTextStyle.title4(
+                      disabled ? disabledTintColor : tintColor),
                 ));
     }
   }
@@ -343,9 +339,8 @@ class BitcoinButtonPlain extends StatelessWidget {
                               color: disabled ? disabledTintColor : tintColor)),
                     )
                   : Text(title,
-                      style: TextStyle(
-                          color: disabled ? disabledTintColor : tintColor,
-                          fontWeight: FontWeight.bold))));
+                      style: BitcoinTextStyle.title4(
+                          disabled ? disabledTintColor : tintColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -376,9 +371,8 @@ class BitcoinButtonPlain extends StatelessWidget {
                 )
               : Text(
                   title,
-                  style: TextStyle(
-                      color: disabled ? disabledTintColor : tintColor,
-                      fontWeight: FontWeight.bold),
+                  style: BitcoinTextStyle.title4(
+                      disabled ? disabledTintColor : tintColor),
                 ));
     }
   }
