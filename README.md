@@ -110,17 +110,14 @@ BitcoinButtonFilled(
 
 ## Icons
 
+Most of the icons from [Bitcoin Icons](https://github.com/BitcoinDesign/Bitcoin-Icons) are included.
+
 ```dart
 Image(
-    image: const AssetImage("icons/bitcoin_circle_filled.png",
+    image: const AssetImage("icons/bitcoin_circle.png",
     package: "bitcoin_ui_kit"),
     color: Bitcoin.orange),
 ```
-
-## ToDo
-
-- Themes
-- All icons
 
 ## Additional information
 
