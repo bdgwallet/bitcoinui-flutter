@@ -146,3 +146,94 @@ class BitcoinButtonFilled extends StatelessWidget {
     }
   }
 }
+
+class BitcoinButtonOutlined extends StatelessWidget {
+  final String title;
+  final double width;
+  final double height;
+  final double cornerRadius;
+  final Color tintColor;
+  final Color disabledTintColor;
+  final bool disabled;
+  final bool isLoading;
+  final VoidCallback? onPressed;
+
+  const BitcoinButtonOutlined({
+    Key? key,
+    required this.title,
+    this.width = defaultButtonWidth,
+    this.height = defaultButtonHeight,
+    this.cornerRadius = defaultCornerRadius,
+    this.tintColor = defaultTintColor,
+    this.disabledTintColor = defaultDisabledTintColor,
+    this.disabled = false,
+    this.isLoading = false,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isIOS) {
+      return SizedBox(
+          width: width,
+          height: height,
+          child: CupertinoButton(
+              color: disabled ? disabledTintColor : tintColor,
+              borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+              padding: defaultPadding,
+              onPressed: disabled
+                  ? null
+                  : isLoading
+                      ? (() => {})
+                      : onPressed,
+              child: isLoading
+                  ? SizedBox(
+                      height: height * 0.5,
+                      width: height * 0.5,
+                      child: Center(
+                          child: CupertinoActivityIndicator(
+                              color: disabled ? disabledTintColor : tintColor)),
+                    )
+                  : Text(title,
+                      style: TextStyle(
+                          color: disabled ? disabledTintColor : tintColor,
+                          fontWeight: FontWeight.bold))));
+    } else {
+      return ElevatedButton(
+          style: ButtonStyle(
+            elevation: const MaterialStatePropertyAll(0),
+            backgroundColor: MaterialStateProperty.all(Colors.transparent),
+            padding: MaterialStateProperty.all(defaultPadding),
+            fixedSize: MaterialStatePropertyAll(Size(width, height)),
+            side: MaterialStatePropertyAll(BorderSide(
+                width: 2.0, color: disabled ? disabledTintColor : tintColor)),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(cornerRadius),
+              ),
+            ),
+            enableFeedback: true,
+          ),
+          onPressed: disabled
+              ? null
+              : isLoading
+                  ? (() => {})
+                  : onPressed,
+          child: isLoading
+              ? SizedBox(
+                  height: height * 0.5,
+                  width: height * 0.5,
+                  child: Center(
+                      child: CircularProgressIndicator(
+                          color: disabled ? disabledTintColor : tintColor,
+                          strokeWidth: 2)),
+                )
+              : Text(
+                  title,
+                  style: TextStyle(
+                      color: disabled ? disabledTintColor : tintColor,
+                      fontWeight: FontWeight.bold),
+                ));
+    }
+  }
+}
