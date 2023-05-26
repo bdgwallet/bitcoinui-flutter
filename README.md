@@ -69,6 +69,26 @@ Bitcoin.neutral8Dark
 
 ![image](https://github.com/bdgwallet/bitcoinuikit-flutter/assets/3393669/65d5a45a-67cb-4972-bfde-b2f21f62a822)
 
+## Text styles
+
+There are five title styles and five body styles, each with a color parameter.
+
+```dart
+// Title styles
+BitcoinTextStyle.title1(Bitcoin.black)
+BitcoinTextStyle.title2(Bitcoin.black)
+BitcoinTextStyle.title3(Bitcoin.black)
+BitcoinTextStyle.title4(Bitcoin.black)
+BitcoinTextStyle.title5(Bitcoin.black)
+
+// Body styles
+BitcoinTextStyle.body1(Bitcoin.black)
+BitcoinTextStyle.body2(Bitcoin.black)
+BitcoinTextStyle.body3(Bitcoin.black)
+BitcoinTextStyle.body4(Bitcoin.black)
+BitcoinTextStyle.body5(Bitcoin.black)
+```
+
 ## Buttons
 
 There are three styles of buttons in the UI Kit
@@ -101,7 +121,6 @@ Image(
 
 - Themes
 - All icons
-- Text styles
 
 ## Additional information
 
