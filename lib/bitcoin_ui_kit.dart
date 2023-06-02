@@ -154,7 +154,7 @@ class BitcoinButtonFilled extends StatelessWidget {
                     )
                   : Text(title,
                       style: textStyle ??
-                          BitcoinTextStyle.title4(
+                          BitcoinTextStyle.title5(
                               disabled ? disabledTextColor : textColor))));
     } else {
       return ElevatedButton(
@@ -186,7 +186,7 @@ class BitcoinButtonFilled extends StatelessWidget {
               : Text(
                   title,
                   style: textStyle ??
-                      BitcoinTextStyle.title4(
+                      BitcoinTextStyle.title5(
                           disabled ? disabledTextColor : textColor),
                 ));
     }
@@ -257,7 +257,7 @@ class BitcoinButtonOutlined extends StatelessWidget {
                     )
                   : Text(title,
                       style: textStyle ??
-                          BitcoinTextStyle.title4(
+                          BitcoinTextStyle.title5(
                               disabled ? disabledTintColor : tintColor))));
     } else {
       return ElevatedButton(
@@ -292,7 +292,7 @@ class BitcoinButtonOutlined extends StatelessWidget {
               : Text(
                   title,
                   style: textStyle ??
-                      BitcoinTextStyle.title4(
+                      BitcoinTextStyle.title5(
                           disabled ? disabledTintColor : tintColor),
                 ));
     }
@@ -350,7 +350,7 @@ class BitcoinButtonPlain extends StatelessWidget {
                     )
                   : Text(title,
                       style: textStyle ??
-                          BitcoinTextStyle.title4(
+                          BitcoinTextStyle.title5(
                               disabled ? disabledTintColor : tintColor))));
     } else {
       return ElevatedButton(
@@ -383,7 +383,7 @@ class BitcoinButtonPlain extends StatelessWidget {
               : Text(
                   title,
                   style: textStyle ??
-                      BitcoinTextStyle.title4(
+                      BitcoinTextStyle.title5(
                           disabled ? disabledTintColor : tintColor),
                 ));
     }

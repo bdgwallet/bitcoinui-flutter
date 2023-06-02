@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Changed default button textStyle to .title5() to better match UI Kit and standard buttons
+
 ## 1.0.1
 
 - Added optional textStyle parameter to buttons for more flexibility
