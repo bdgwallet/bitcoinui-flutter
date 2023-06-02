@@ -93,7 +93,7 @@ There are three styles of buttons in the UI Kit
 - BitcoinButtonOutlined
 - BitcoinButtonPlain
 
-They each have optional parameters like, width, height, tintColor, textColor (for BitcoinButtonFilled), cornerRadius and the ability to set disabled and isLoading states.
+They each have optional parameters like, textStyle, width, height, tintColor, textColor (for BitcoinButtonFilled), cornerRadius and the ability to set disabled and isLoading states.
 
 ```dart
 BitcoinButtonFilled(

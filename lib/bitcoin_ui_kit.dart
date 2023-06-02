@@ -102,6 +102,7 @@ const defaultDisabledOutlineColor = Color(0xFFDEDEDE);
 
 class BitcoinButtonFilled extends StatelessWidget {
   final String title;
+  final TextStyle? textStyle;
   final double width;
   final double height;
   final double cornerRadius;
@@ -116,6 +117,7 @@ class BitcoinButtonFilled extends StatelessWidget {
   const BitcoinButtonFilled({
     Key? key,
     required this.title,
+    this.textStyle,
     this.width = defaultButtonWidth,
     this.height = defaultButtonHeight,
     this.cornerRadius = defaultCornerRadius,
@@ -151,8 +153,9 @@ class BitcoinButtonFilled extends StatelessWidget {
                           child: CupertinoActivityIndicator(color: textColor)),
                     )
                   : Text(title,
-                      style: BitcoinTextStyle.title4(
-                          disabled ? disabledTextColor : textColor))));
+                      style: textStyle ??
+                          BitcoinTextStyle.title4(
+                              disabled ? disabledTextColor : textColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -182,8 +185,9 @@ class BitcoinButtonFilled extends StatelessWidget {
                 )
               : Text(
                   title,
-                  style: BitcoinTextStyle.title4(
-                      disabled ? disabledTextColor : textColor),
+                  style: textStyle ??
+                      BitcoinTextStyle.title4(
+                          disabled ? disabledTextColor : textColor),
                 ));
     }
   }
@@ -191,6 +195,7 @@ class BitcoinButtonFilled extends StatelessWidget {
 
 class BitcoinButtonOutlined extends StatelessWidget {
   final String title;
+  final TextStyle? textStyle;
   final double width;
   final double height;
   final double cornerRadius;
@@ -203,6 +208,7 @@ class BitcoinButtonOutlined extends StatelessWidget {
   const BitcoinButtonOutlined({
     Key? key,
     required this.title,
+    this.textStyle,
     this.width = defaultButtonWidth,
     this.height = defaultButtonHeight,
     this.cornerRadius = defaultCornerRadius,
@@ -250,8 +256,9 @@ class BitcoinButtonOutlined extends StatelessWidget {
                               color: disabled ? disabledTintColor : tintColor)),
                     )
                   : Text(title,
-                      style: BitcoinTextStyle.title4(
-                          disabled ? disabledTintColor : tintColor))));
+                      style: textStyle ??
+                          BitcoinTextStyle.title4(
+                              disabled ? disabledTintColor : tintColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -284,8 +291,9 @@ class BitcoinButtonOutlined extends StatelessWidget {
                 )
               : Text(
                   title,
-                  style: BitcoinTextStyle.title4(
-                      disabled ? disabledTintColor : tintColor),
+                  style: textStyle ??
+                      BitcoinTextStyle.title4(
+                          disabled ? disabledTintColor : tintColor),
                 ));
     }
   }
@@ -293,6 +301,7 @@ class BitcoinButtonOutlined extends StatelessWidget {
 
 class BitcoinButtonPlain extends StatelessWidget {
   final String title;
+  final TextStyle? textStyle;
   final double width;
   final double height;
   final double cornerRadius;
@@ -305,6 +314,7 @@ class BitcoinButtonPlain extends StatelessWidget {
   const BitcoinButtonPlain({
     Key? key,
     required this.title,
+    this.textStyle,
     this.width = defaultButtonWidth,
     this.height = defaultButtonHeight,
     this.cornerRadius = defaultCornerRadius,
@@ -339,8 +349,9 @@ class BitcoinButtonPlain extends StatelessWidget {
                               color: disabled ? disabledTintColor : tintColor)),
                     )
                   : Text(title,
-                      style: BitcoinTextStyle.title4(
-                          disabled ? disabledTintColor : tintColor))));
+                      style: textStyle ??
+                          BitcoinTextStyle.title4(
+                              disabled ? disabledTintColor : tintColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -371,8 +382,9 @@ class BitcoinButtonPlain extends StatelessWidget {
                 )
               : Text(
                   title,
-                  style: BitcoinTextStyle.title4(
-                      disabled ? disabledTintColor : tintColor),
+                  style: textStyle ??
+                      BitcoinTextStyle.title4(
+                          disabled ? disabledTintColor : tintColor),
                 ));
     }
   }
