@@ -8,7 +8,7 @@ Add the package in your pubspec.yaml dependencies
 
 ```dart
 dependencies:
-  bitcoin_ui_kit: : ^1.0.0
+  bitcoin_ui_kit: : ^1.0.3
 ```
 
 ## Usage

@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Support Dart version up to 3.0.5
+
 ## 1.0.2
 
 - Changed default button textStyle to .title5() to better match UI Kit and standard buttons
