@@ -1,120 +1,96 @@
-# The Bitcoin UI Kit for Flutter
+<h1 align="center"><a href="https://pub.dev/packages/bitcoin_ui_kit">Bitcoin UI Kit Flutter Package</a></h1>
 
-This is the Flutter implementation of the [Bitcoin UI Kit](https://www.bitcoinuikit.com).
+<img src="https://www.bitcoinuikit.com/assets/screens.png" alt="bitcoin_ui_kit package" />
 
-## Getting started
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Add the package in your pubspec.yaml dependencies
+Bitcoin UI Kit is a comprehensive Flutter package that provides a collection of beautifully designed UI components and themes for building Bitcoin-related applications. It offers a design foundation for prototypes, concept explorations, and open-source projects, allowing you to kickstart the design process and focus on creating unique Bitcoin products.
 
-```dart
+## Features
+- **Design System**: Bitcoin UI Kit offers a carefully crafted design system that includes a set of predefined colors, typography styles, and components tailored for Bitcoin-themed applications.
+- **Reusable Components**: The UI kit provides a collection of reusable and customizable components such as buttons, divider, switches, avatars, pin entry, and more. These components are designed to seamlessly integrate into your Flutter projects.
+- **Dynamic Theming**: Bitcoin UI Kit supports dynamic theming, allowing you to effortlessly switch between light and dark themes based on the user's preference or app configuration.
+
+## Installation
+To use Bitcoin UI Kit in your Flutter project, add the following dependency to your `pubspec.yaml` file:
+
+```yaml
 dependencies:
-  bitcoin_ui_kit: : ^1.0.3
+  bitcoin_ui_kit: ^1.0.3
 ```
 
+Then, run `flutter pub get` to fetch the package.
+
 ## Usage
-
-Import in the dart file where you want to use it
-
+Import the Bitcoin UI Kit package wherever you want to use its components:
 ```dart
 import 'package:bitcoin_ui_kit/bitcoin_ui_kit.dart';
 ```
 
-## Colors
+You can then utilize the various UI components provided by the package, such as `BitcoinElevatedButton`, `BitcoinOutlinedButton`, `BitcoinSwitch`, and more. Refer to the code examples in the package for more details on using each component effectively.
 
+## Example Usage
 ```dart
-// Light primary and accent colors
-Bitcoin.orange
-Bitcoin.red
-Bitcoin.green
-Bitcoin.blue
-Bitcoin.purple
+import 'package:bitcoin_ui_kit/bitcoin_ui_kit.dart';
+import 'package:flutter/material.dart';
 
-// Light theme neutrals
-Bitcoin.white
-Bitcoin.neutral1
-Bitcoin.neutral2
-Bitcoin.neutral3
-Bitcoin.neutral4
-Bitcoin.neutral5
-Bitcoin.neutral6
-Bitcoin.neutral7
-Bitcoin.neutral8
-Bitcoin.black
-```
+void main() {
+  runApp(MainApp());
+}
 
-![image](https://github.com/bdgwallet/bitcoinuikit-flutter/assets/3393669/dd843296-6336-4920-b9e6-93dae58f4697)
+class MainApp extends StatelessWidget {
+  final _lightTheme = LightBitcoinThemeData();
+  final _darkTheme = DarkBitcoinThemeData();
 
-```dart
-// Dark primary and accent colors
-Bitcoin.orangeDark
-Bitcoin.redDark
-Bitcoin.greenDark
-Bitcoin.blueDark
-Bitcoin.purpleDark
+  MainApp({super.key});
 
-// Dark theme neutrals
-Bitcoin.neutral1Dark
-Bitcoin.neutral2Dark
-Bitcoin.neutral3Dark
-Bitcoin.neutral4Dark
-Bitcoin.neutral5Dark
-Bitcoin.neutral6Dark
-Bitcoin.neutral7Dark
-Bitcoin.neutral8Dark
-```
-
-![image](https://github.com/bdgwallet/bitcoinuikit-flutter/assets/3393669/65d5a45a-67cb-4972-bfde-b2f21f62a822)
-
-## Text styles
-
-There are five title styles and five body styles, each with a color parameter.
-
-```dart
-// Title styles
-BitcoinTextStyle.title1(Bitcoin.black)
-BitcoinTextStyle.title2(Bitcoin.black)
-BitcoinTextStyle.title3(Bitcoin.black)
-BitcoinTextStyle.title4(Bitcoin.black)
-BitcoinTextStyle.title5(Bitcoin.black)
-
-// Body styles
-BitcoinTextStyle.body1(Bitcoin.black)
-BitcoinTextStyle.body2(Bitcoin.black)
-BitcoinTextStyle.body3(Bitcoin.black)
-BitcoinTextStyle.body4(Bitcoin.black)
-BitcoinTextStyle.body5(Bitcoin.black)
-```
-
-## Buttons
-
-There are three styles of buttons in the UI Kit
-
-- BitcoinButtonFilled
-- BitcoinButtonOutlined
-- BitcoinButtonPlain
-
-They each have optional parameters like, textStyle, width, height, tintColor, textColor (for BitcoinButtonFilled), cornerRadius and the ability to set disabled and isLoading states.
-
-```dart
-BitcoinButtonFilled(
-  title: "Filled",
-  onPressed: () {
-    debugPrint("Test button press");
+  @override
+  Widget build(BuildContext context) {
+    return BitcoinTheme(
+      lightTheme: _lightTheme,
+      darkTheme: _darkTheme,
+      child: MaterialApp(
+        theme: _lightTheme.materialThemeData,
+        darkTheme: _darkTheme.materialThemeData,
+        // TODO: change to dark mode
+        themeMode: ThemeMode.light,
+        home: const BitcoinHomePage(),
+      ),
+    );
   }
-),
+}
+
+class BitcoinHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bitcoin UI Kit Demo'),
+      ),
+      body: Center(
+        child: BitcoinElevatedButton(
+          label: 'Create a new wallet',
+          onPressed: () {},
+          backgroundColor: BitcoinColors.orange,
+          fontSize: 21,
+          height: 60,
+          textPadding: const EdgeInsets.symmetric(vertical: 19, horizontal: 20,
+          ),
+        ),
+      ),
+    );
+  }
+}
 ```
 
-## Icons
+## Showcase
+Visit the [Storybook](https://aniketambore.github.io/bitcoinuikit-flutter/) to see a showcase of the widgets.
 
-Most of the icons from [Bitcoin Icons](https://github.com/BitcoinDesign/Bitcoin-Icons) are included.
+## Contributing
+Bitcoin UI Kit is an open-source project, and contributions are welcome! If you find a bug, have a feature request, or want to contribute improvements, please submit an issue or a pull request in the GitHub repository.
 
-```dart
-Image(
-    image: const AssetImage("icons/bitcoin_circle.png",
-    package: "bitcoin_ui_kit"),
-    color: Bitcoin.orange),
-```
+## License
+This project is licensed under the MIT License.
 
-## Additional information
-
-Find out more at [Bitcoin UI Kit](https://www.bitcoinuikit.com)
+## Credits
+Bitcoin UI Kit Flutter Package is inspired by the design principles and aesthetics of the [Bitcoin UI Kit](https://www.bitcoinuikit.com/).
