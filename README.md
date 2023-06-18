@@ -1,4 +1,4 @@
-# Bitcoin UI Kit Flutter Package
+<h1 align="center"><a href="https://pub.dev/packages/bitcoin_ui_kit">Bitcoin UI Kit Flutter Package</a></h1>
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -82,7 +82,7 @@ class BitcoinHomePage extends StatelessWidget {
 ```
 
 ## Showcase
-Visit the Storybook to see a showcase of the widgets.
+Visit the [Storybook](https://aniketambore.github.io/bitcoinuikit-flutter/) to see a showcase of the widgets.
 
 ## Contributing
 Bitcoin UI Kit is an open-source project, and contributions are welcome! If you find a bug, have a feature request, or want to contribute improvements, please submit an issue or a pull request in the GitHub repository.
