@@ -1,5 +1,7 @@
 <h1 align="center"><a href="https://pub.dev/packages/bitcoin_ui_kit">Bitcoin UI Kit Flutter Package</a></h1>
 
+<img src="https://www.bitcoinuikit.com/assets/screens.png" alt="bitcoin_ui_kit package" />
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Bitcoin UI Kit is a comprehensive Flutter package that provides a collection of beautifully designed UI components and themes for building Bitcoin-related applications. It offers a design foundation for prototypes, concept explorations, and open-source projects, allowing you to kickstart the design process and focus on creating unique Bitcoin products.
