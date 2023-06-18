@@ -2,7 +2,7 @@ name: Build and Deploy gh-pages
 
 on:
   push:
-    branches: [alternative-implementation]
+    branches: [alternative-implementation-with-cicd]
 
 jobs:
   build:
