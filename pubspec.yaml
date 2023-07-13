@@ -4,7 +4,7 @@ version: 1.0.3
 homepage: https://github.com/bdgwallet/bitcoinuikit-flutter
 
 environment:
-  sdk: ">=2.18.5 <=3.0.5"
+  sdk: ">=2.18.5 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
