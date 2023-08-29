@@ -1,6 +1,6 @@
 name: bitcoin_ui
 description: Bitcoin UI for Flutter. Provides UI components like colors, text styles, buttons and more from the Bitcoin UI Kit project by the Bitcoin design community.
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/bdgwallet/bitcoinui-flutter
 
 environment:

@@ -1,4 +1,4 @@
-# The Bitcoin UI Kit for Flutter
+# Bitcoin UI
 
 This is the Flutter implementation of the [Bitcoin UI Kit](https://www.bitcoinuikit.com).
 
@@ -8,7 +8,7 @@ Add the package in your pubspec.yaml dependencies
 
 ```dart
 dependencies:
-  bitcoin_ui: : ^1.0.4
+  bitcoin_ui: : ^1.0.5
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ dependencies:
 Import in the dart file where you want to use it
 
 ```dart
-import 'package:bitcoin_ui_kit/bitcoin_ui.dart';
+import 'package:bitcoin_ui/bitcoin_ui.dart';
 ```
 
 ## Colors
