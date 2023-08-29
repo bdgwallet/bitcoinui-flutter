@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Rename to bitcoin_ui to align with Bitcoin UI packages on outher platforms
+
 ## 1.0.3
 
 - Support Dart version up to 3.0.5
