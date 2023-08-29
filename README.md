@@ -8,7 +8,7 @@ Add the package in your pubspec.yaml dependencies
 
 ```dart
 dependencies:
-  bitcoin_ui_kit: : ^1.0.3
+  bitcoin_ui: : ^1.0.4
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ dependencies:
 Import in the dart file where you want to use it
 
 ```dart
-import 'package:bitcoin_ui_kit/bitcoin_ui_kit.dart';
+import 'package:bitcoin_ui_kit/bitcoin_ui.dart';
 ```
 
 ## Colors
