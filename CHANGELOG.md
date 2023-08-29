@@ -1,3 +1,7 @@
+## 1.0.5
+
+- Fix license, minor publishing issues
+
 ## 1.0.4
 
 - Rename to bitcoin_ui to align with Bitcoin UI packages on outher platforms
