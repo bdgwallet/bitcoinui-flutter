@@ -4,8 +4,8 @@ version: 1.0.4
 homepage: https://github.com/bdgwallet/bitcoinui-flutter
 
 environment:
-  sdk: ">=2.18.5 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ^2.18.5
+  flutter: ^1.17.0
 
 dependencies:
   flutter:
@@ -19,3 +19,7 @@ dev_dependencies:
 flutter:
   assets:
     - icons/
+
+platforms:
+  android:
+  ios:
