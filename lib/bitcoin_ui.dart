@@ -103,7 +103,7 @@ const defaultDisabledOutlineColor = Color(0xFFDEDEDE);
 class BitcoinButtonFilled extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
-  final double width;
+  final double? width;
   final double height;
   final double cornerRadius;
   final Color? tintColor;
@@ -118,7 +118,7 @@ class BitcoinButtonFilled extends StatelessWidget {
     Key? key,
     required this.title,
     this.textStyle,
-    this.width = defaultButtonWidth,
+    this.width,
     this.height = defaultButtonHeight,
     this.cornerRadius = defaultCornerRadius,
     this.tintColor,
@@ -132,9 +132,10 @@ class BitcoinButtonFilled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     if (Platform.isIOS) {
       return SizedBox(
-          width: width,
+          width: width ?? screenWidth - 2 * 16,
           height: height,
           child: CupertinoButton(
               color: disabled
@@ -152,15 +153,20 @@ class BitcoinButtonFilled extends StatelessWidget {
                       height: height * 0.5,
                       width: height * 0.5,
                       child: Center(
-                          child: CupertinoActivityIndicator(color: textColor)),
+                          child: CupertinoActivityIndicator(
+                              color: textColor ??
+                                  Theme.of(context).colorScheme.onPrimary)),
                     )
                   : Text(title,
                       style: textStyle ??
-                          BitcoinTextStyle.title5(disabled
-                              ? disabledTextColor ??
-                                  Theme.of(context).colorScheme.onSecondary
-                              : textColor ??
-                                  Theme.of(context).colorScheme.onPrimary))));
+                          Theme.of(context).textTheme.titleSmall?.copyWith(
+                              color: disabled
+                                  ? disabledTextColor ??
+                                      Theme.of(context).colorScheme.onSecondary
+                                  : textColor ??
+                                      Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
@@ -168,7 +174,8 @@ class BitcoinButtonFilled extends StatelessWidget {
                 ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
                 : tintColor ?? Theme.of(context).colorScheme.primary),
             padding: MaterialStateProperty.all(defaultPadding),
-            fixedSize: MaterialStatePropertyAll(Size(width, height)),
+            fixedSize: MaterialStatePropertyAll(
+                Size(width ?? screenWidth - 2 * 16, height)),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(cornerRadius),
@@ -187,16 +194,19 @@ class BitcoinButtonFilled extends StatelessWidget {
                   width: height * 0.5,
                   child: Center(
                       child: CircularProgressIndicator(
-                          color: textColor, strokeWidth: 2)),
+                          color: textColor ??
+                              Theme.of(context).colorScheme.onPrimary,
+                          strokeWidth: 2)),
                 )
               : Text(
                   title,
                   style: textStyle ??
-                      BitcoinTextStyle.title5(disabled
-                          ? disabledTextColor ??
-                              Theme.of(context).colorScheme.onSecondary
-                          : textColor ??
-                              Theme.of(context).colorScheme.onPrimary),
+                      Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: disabled
+                              ? disabledTextColor ??
+                                  Theme.of(context).colorScheme.onSecondary
+                              : textColor ??
+                                  Theme.of(context).colorScheme.onPrimary),
                 ));
     }
   }
