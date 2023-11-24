@@ -1,3 +1,9 @@
+## 2.0.0
+
+- Uses Theme colors by default (.primary, .onPrimary, .secondary, .onSecondary)
+- Uses Theme text by default (.titleSmall)
+- Added .isCapsule to give the button a capsule shape, on by default
+
 ## 1.0.5
 
 - Fix license, minor publishing issues

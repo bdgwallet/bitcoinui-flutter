@@ -8,7 +8,7 @@ Add the package in your pubspec.yaml dependencies
 
 ```dart
 dependencies:
-  bitcoin_ui: : ^1.0.5
+  bitcoin_ui: : ^2.0.0
 ```
 
 ## Usage
@@ -93,7 +93,7 @@ There are three styles of buttons in the UI Kit
 - BitcoinButtonOutlined
 - BitcoinButtonPlain
 
-They each have optional parameters like, textStyle, width, height, tintColor, textColor (for BitcoinButtonFilled), cornerRadius and the ability to set disabled and isLoading states.
+They each have optional parameters like, textStyle, width, height, tintColor, textColor (for BitcoinButtonFilled), cornerRadius and the ability to set disabled and isLoading states. By default, they use colors from the Flutter Theme and are capsule shaped, although this can be overridden.
 
 ```dart
 BitcoinButtonFilled(
