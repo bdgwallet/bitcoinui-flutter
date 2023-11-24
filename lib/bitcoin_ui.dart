@@ -104,14 +104,15 @@ class BitcoinButtonFilled extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
   final double? width;
-  final double height;
-  final double cornerRadius;
+  final double? height;
+  final double? cornerRadius;
   final Color? tintColor;
   final Color? textColor;
   final Color? disabledTintColor;
   final Color? disabledTextColor;
   final bool disabled;
   final bool isLoading;
+  final bool isCapsule;
   final VoidCallback? onPressed;
 
   const BitcoinButtonFilled({
@@ -119,29 +120,41 @@ class BitcoinButtonFilled extends StatelessWidget {
     required this.title,
     this.textStyle,
     this.width,
-    this.height = defaultButtonHeight,
-    this.cornerRadius = defaultCornerRadius,
+    this.height,
+    this.cornerRadius,
     this.tintColor,
     this.textColor,
     this.disabledTintColor,
     this.disabledTextColor,
     this.disabled = false,
     this.isLoading = false,
+    this.isCapsule = true,
     required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Set conditional button values
     double screenWidth = MediaQuery.of(context).size.width;
+    double buttonWidth = width ?? screenWidth - 2 * 16;
+    double buttonHeight = height ?? defaultButtonHeight;
+    double buttonCornerRadius =
+        isCapsule ? buttonHeight / 2 : cornerRadius ?? defaultCornerRadius;
+    Color buttonColor = disabled
+        ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
+        : tintColor ?? Theme.of(context).colorScheme.primary;
+    Color buttonTextColor = disabled
+        ? disabledTextColor ?? Theme.of(context).colorScheme.onSecondary
+        : textColor ?? Theme.of(context).colorScheme.onPrimary;
+
     if (Platform.isIOS) {
       return SizedBox(
-          width: width ?? screenWidth - 2 * 16,
+          width: buttonWidth,
           height: height,
           child: CupertinoButton(
-              color: disabled
-                  ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
-                  : tintColor ?? Theme.of(context).colorScheme.primary,
-              borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+              color: buttonColor,
+              borderRadius:
+                  BorderRadius.all(Radius.circular(buttonCornerRadius)),
               padding: defaultPadding,
               onPressed: disabled
                   ? null
@@ -150,35 +163,28 @@ class BitcoinButtonFilled extends StatelessWidget {
                       : onPressed,
               child: isLoading
                   ? SizedBox(
-                      height: height * 0.5,
-                      width: height * 0.5,
+                      height: buttonHeight * 0.5,
+                      width: buttonHeight * 0.5,
                       child: Center(
                           child: CupertinoActivityIndicator(
-                              color: textColor ??
-                                  Theme.of(context).colorScheme.onPrimary)),
+                              color: buttonTextColor)),
                     )
                   : Text(title,
                       style: textStyle ??
-                          Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: disabled
-                                  ? disabledTextColor ??
-                                      Theme.of(context).colorScheme.onSecondary
-                                  : textColor ??
-                                      Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary))));
+                          Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(color: buttonTextColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(disabled
-                ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
-                : tintColor ?? Theme.of(context).colorScheme.primary),
+            backgroundColor: MaterialStateProperty.all(buttonColor),
             padding: MaterialStateProperty.all(defaultPadding),
-            fixedSize: MaterialStatePropertyAll(
-                Size(width ?? screenWidth - 2 * 16, height)),
+            fixedSize:
+                MaterialStatePropertyAll(Size(buttonWidth, buttonHeight)),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(cornerRadius),
+                borderRadius: BorderRadius.circular(buttonCornerRadius),
               ),
             ),
             enableFeedback: true,
@@ -190,23 +196,19 @@ class BitcoinButtonFilled extends StatelessWidget {
                   : onPressed,
           child: isLoading
               ? SizedBox(
-                  height: height * 0.5,
-                  width: height * 0.5,
+                  height: buttonHeight * 0.5,
+                  width: buttonHeight * 0.5,
                   child: Center(
                       child: CircularProgressIndicator(
-                          color: textColor ??
-                              Theme.of(context).colorScheme.onPrimary,
-                          strokeWidth: 2)),
+                          color: buttonTextColor, strokeWidth: 2)),
                 )
               : Text(
                   title,
                   style: textStyle ??
-                      Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: disabled
-                              ? disabledTextColor ??
-                                  Theme.of(context).colorScheme.onSecondary
-                              : textColor ??
-                                  Theme.of(context).colorScheme.onPrimary),
+                      Theme.of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(color: buttonTextColor),
                 ));
     }
   }
