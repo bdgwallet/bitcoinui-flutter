@@ -139,7 +139,7 @@ class BitcoinButtonFilled extends StatelessWidget {
     double buttonWidth = width ?? screenWidth - 2 * 16;
     double buttonHeight = height ?? defaultButtonHeight;
     double buttonCornerRadius =
-        isCapsule ? buttonHeight / 2 : cornerRadius ?? defaultCornerRadius;
+        cornerRadius ?? (isCapsule ? buttonHeight / 2 : defaultCornerRadius);
     Color buttonColor = disabled
         ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
         : tintColor ?? Theme.of(context).colorScheme.primary;
