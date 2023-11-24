@@ -90,15 +90,9 @@ extension BitcoinTextStyle on TextStyle {
 
 // Buttons
 
-const defaultButtonWidth = 315.0;
 const defaultButtonHeight = 48.0;
 const defaultCornerRadius = 5.0;
 const defaultPadding = EdgeInsets.symmetric(vertical: 8, horizontal: 30);
-const defaultTintColor = Color(0xFFF89B2A);
-const defaultTextColor = Color(0xFFFFFFFF);
-const defaultDisabledTintColor = Color(0xFFF4F4F4);
-const defaultDisabledTextColor = Color(0xFFBBBBBB);
-const defaultDisabledOutlineColor = Color(0xFFDEDEDE);
 
 class BitcoinButtonFilled extends StatelessWidget {
   final String title;
@@ -217,48 +211,60 @@ class BitcoinButtonFilled extends StatelessWidget {
 class BitcoinButtonOutlined extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
-  final double width;
-  final double height;
-  final double cornerRadius;
-  final Color tintColor;
-  final Color disabledTintColor;
+  final double? width;
+  final double? height;
+  final double? cornerRadius;
+  final Color? tintColor;
+  final Color? disabledTintColor;
   final bool disabled;
   final bool isLoading;
+  final bool isCapsule;
   final VoidCallback? onPressed;
 
   const BitcoinButtonOutlined({
     Key? key,
     required this.title,
     this.textStyle,
-    this.width = defaultButtonWidth,
-    this.height = defaultButtonHeight,
-    this.cornerRadius = defaultCornerRadius,
-    this.tintColor = defaultTintColor,
-    this.disabledTintColor = defaultDisabledTintColor,
+    this.width,
+    this.height,
+    this.cornerRadius,
+    this.tintColor,
+    this.disabledTintColor,
     this.disabled = false,
     this.isLoading = false,
+    this.isCapsule = true,
     required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Set conditional button values
+    double screenWidth = MediaQuery.of(context).size.width;
+    double buttonWidth = width ?? screenWidth - 2 * 16;
+    double buttonHeight = height ?? defaultButtonHeight;
+    double buttonCornerRadius =
+        cornerRadius ?? (isCapsule ? buttonHeight / 2 : defaultCornerRadius);
+    Color buttonColor = disabled
+        ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
+        : tintColor ?? Theme.of(context).colorScheme.primary;
+
     if (Platform.isIOS) {
       return SizedBox(
-          width: width,
-          height: height,
+          width: buttonWidth,
+          height: buttonWidth,
           child: OutlinedButton(
               // Can't use CupertinoButton here as it has no ability to set outlines
               style: ButtonStyle(
                 elevation: const MaterialStatePropertyAll(0),
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
                 padding: MaterialStateProperty.all(defaultPadding),
-                fixedSize: MaterialStatePropertyAll(Size(width, height)),
-                side: MaterialStatePropertyAll(BorderSide(
-                    width: 2.0,
-                    color: disabled ? disabledTintColor : tintColor)),
+                fixedSize:
+                    MaterialStatePropertyAll(Size(buttonWidth, buttonHeight)),
+                side: MaterialStatePropertyAll(
+                    BorderSide(width: 2.0, color: buttonColor)),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(cornerRadius),
+                    borderRadius: BorderRadius.circular(buttonCornerRadius),
                   ),
                 ),
                 enableFeedback: true,
@@ -270,28 +276,31 @@ class BitcoinButtonOutlined extends StatelessWidget {
                       : onPressed,
               child: isLoading
                   ? SizedBox(
-                      height: height * 0.5,
-                      width: height * 0.5,
+                      height: buttonHeight * 0.5,
+                      width: buttonHeight * 0.5,
                       child: Center(
-                          child: CupertinoActivityIndicator(
-                              color: disabled ? disabledTintColor : tintColor)),
+                          child:
+                              CupertinoActivityIndicator(color: buttonColor)),
                     )
                   : Text(title,
                       style: textStyle ??
-                          BitcoinTextStyle.title5(
-                              disabled ? disabledTintColor : tintColor))));
+                          Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(color: buttonColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
             elevation: const MaterialStatePropertyAll(0),
             backgroundColor: MaterialStateProperty.all(Colors.transparent),
             padding: MaterialStateProperty.all(defaultPadding),
-            fixedSize: MaterialStatePropertyAll(Size(width, height)),
-            side: MaterialStatePropertyAll(BorderSide(
-                width: 2.0, color: disabled ? disabledTintColor : tintColor)),
+            fixedSize:
+                MaterialStatePropertyAll(Size(buttonWidth, buttonHeight)),
+            side: MaterialStatePropertyAll(
+                BorderSide(width: 2.0, color: buttonColor)),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(cornerRadius),
+                borderRadius: BorderRadius.circular(buttonCornerRadius),
               ),
             ),
             enableFeedback: true,
@@ -303,8 +312,8 @@ class BitcoinButtonOutlined extends StatelessWidget {
                   : onPressed,
           child: isLoading
               ? SizedBox(
-                  height: height * 0.5,
-                  width: height * 0.5,
+                  height: buttonHeight * 0.5,
+                  width: buttonHeight * 0.5,
                   child: Center(
                       child: CircularProgressIndicator(
                           color: disabled ? disabledTintColor : tintColor,
@@ -313,8 +322,10 @@ class BitcoinButtonOutlined extends StatelessWidget {
               : Text(
                   title,
                   style: textStyle ??
-                      BitcoinTextStyle.title5(
-                          disabled ? disabledTintColor : tintColor),
+                      Theme.of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(color: buttonColor),
                 ));
     }
   }
@@ -323,38 +334,51 @@ class BitcoinButtonOutlined extends StatelessWidget {
 class BitcoinButtonPlain extends StatelessWidget {
   final String title;
   final TextStyle? textStyle;
-  final double width;
-  final double height;
-  final double cornerRadius;
-  final Color tintColor;
-  final Color disabledTintColor;
+  final double? width;
+  final double? height;
+  final double? cornerRadius;
+  final Color? tintColor;
+  final Color? disabledTintColor;
   final bool disabled;
   final bool isLoading;
+  final bool isCapsule;
   final VoidCallback? onPressed;
 
   const BitcoinButtonPlain({
     Key? key,
     required this.title,
     this.textStyle,
-    this.width = defaultButtonWidth,
-    this.height = defaultButtonHeight,
-    this.cornerRadius = defaultCornerRadius,
-    this.tintColor = defaultTintColor,
-    this.disabledTintColor = defaultDisabledTintColor,
+    this.width,
+    this.height,
+    this.cornerRadius,
+    this.tintColor,
+    this.disabledTintColor,
     this.disabled = false,
     this.isLoading = false,
+    this.isCapsule = true,
     required this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Set conditional button values
+    double screenWidth = MediaQuery.of(context).size.width;
+    double buttonWidth = width ?? screenWidth - 2 * 16;
+    double buttonHeight = height ?? defaultButtonHeight;
+    double buttonCornerRadius =
+        cornerRadius ?? (isCapsule ? buttonHeight / 2 : defaultCornerRadius);
+    Color buttonColor = disabled
+        ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
+        : tintColor ?? Theme.of(context).colorScheme.primary;
+
     if (Platform.isIOS) {
       return SizedBox(
-          width: width,
-          height: height,
+          width: buttonWidth,
+          height: buttonHeight,
           child: CupertinoButton(
               color: Colors.transparent,
-              borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+              borderRadius:
+                  BorderRadius.all(Radius.circular(buttonCornerRadius)),
               padding: defaultPadding,
               onPressed: disabled
                   ? null
@@ -363,26 +387,28 @@ class BitcoinButtonPlain extends StatelessWidget {
                       : onPressed,
               child: isLoading
                   ? SizedBox(
-                      height: height * 0.5,
-                      width: height * 0.5,
+                      height: buttonHeight * 0.5,
+                      width: buttonHeight * 0.5,
                       child: Center(
-                          child: CupertinoActivityIndicator(
-                              color: disabled ? disabledTintColor : tintColor)),
+                          child:
+                              CupertinoActivityIndicator(color: buttonColor)),
                     )
                   : Text(title,
                       style: textStyle ??
-                          BitcoinTextStyle.title5(
-                              disabled ? disabledTintColor : tintColor))));
+                          Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(color: buttonColor))));
     } else {
       return ElevatedButton(
           style: ButtonStyle(
             elevation: const MaterialStatePropertyAll(0),
             backgroundColor: MaterialStateProperty.all(Colors.transparent),
             padding: MaterialStateProperty.all(defaultPadding),
-            fixedSize: MaterialStatePropertyAll(Size(width, height)),
+            fixedSize: MaterialStatePropertyAll(Size(buttonWidth, buttonWidth)),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(cornerRadius),
+                borderRadius: BorderRadius.circular(buttonCornerRadius),
               ),
             ),
             enableFeedback: true,
@@ -394,18 +420,19 @@ class BitcoinButtonPlain extends StatelessWidget {
                   : onPressed,
           child: isLoading
               ? SizedBox(
-                  height: height * 0.5,
-                  width: height * 0.5,
+                  height: buttonHeight * 0.5,
+                  width: buttonHeight * 0.5,
                   child: Center(
                       child: CircularProgressIndicator(
-                          color: disabled ? disabledTintColor : tintColor,
-                          strokeWidth: 2)),
+                          color: buttonColor, strokeWidth: 2)),
                 )
               : Text(
                   title,
                   style: textStyle ??
-                      BitcoinTextStyle.title5(
-                          disabled ? disabledTintColor : tintColor),
+                      Theme.of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(color: buttonColor),
                 ));
     }
   }
