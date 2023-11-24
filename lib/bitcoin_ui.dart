@@ -164,8 +164,9 @@ class BitcoinButtonFilled extends StatelessWidget {
     } else {
       return ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-                disabled ? disabledTintColor : tintColor),
+            backgroundColor: MaterialStateProperty.all(disabled
+                ? disabledTintColor ?? Theme.of(context).colorScheme.secondary
+                : tintColor ?? Theme.of(context).colorScheme.primary),
             padding: MaterialStateProperty.all(defaultPadding),
             fixedSize: MaterialStatePropertyAll(Size(width, height)),
             shape: MaterialStateProperty.all(
